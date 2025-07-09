@@ -1,0 +1,65 @@
+# 核心框架
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-openai>=0.0.8
+langchain-experimental>=0.0.50
+langgraph>=0.0.30
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.5.0
+
+# 多模态处理
+openai-whisper>=20231117
+opencv-python>=4.8.0
+Pillow>=10.0.0
+transformers>=4.35.0
+torch>=2.1.0
+torchvision>=0.16.0
+sentence-transformers>=2.2.2
+
+# 向量数据库
+chromadb>=0.4.18
+qdrant-client>=1.7.0
+pymilvus>=2.3.4
+
+# 图数据库
+neo4j>=5.15.0
+networkx>=3.2
+
+# RAG相关
+llama-index>=0.9.30
+faiss-cpu>=1.7.4
+numpy>=1.24.0
+scipy>=1.11.0
+
+# 数据处理
+pandas>=2.1.0
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+redis>=5.0.0
+
+# Web和API
+streamlit>=1.28.0
+gradio>=4.8.0
+requests>=2.31.0
+httpx>=0.25.0
+
+# 工具库
+python-dotenv>=1.0.0
+pyyaml>=6.0
+click>=8.1.0
+rich>=13.7.0
+loguru>=0.7.0
+
+# 测试和开发
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.11.0
+flake8>=6.1.0
+mypy>=1.7.0
+
+# 部署相关
+gunicorn>=21.2.0
+celery>=5.3.0
+flower>=2.0.0
+prometheus-client>=0.19.0

@@ -1,0 +1,138 @@
+# 应用配置
+app:
+  name: "Fitness Multi-Agent System"
+  version: "1.0.0"
+  debug: false
+  log_level: "INFO"
+  
+# 服务器配置
+server:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  
+# 数据库配置
+database:
+  url: "postgresql://postgres:password@localhost:5432/fitness_db"
+  pool_size: 10
+  max_overflow: 20
+  
+# Redis配置
+redis:
+  url: "redis://localhost:6379/0"
+  max_connections: 100
+  
+# Neo4j配置
+neo4j:
+  uri: "bolt://localhost:7687"
+  user: "neo4j"
+  password: "password"
+  
+# 向量数据库配置
+vector_db:
+  provider: "qdrant"  # qdrant, chroma, milvus
+  qdrant:
+    host: "localhost"
+    port: 6333
+    collection_name: "fitness_embeddings"
+  chroma:
+    persist_directory: "./data/chroma"
+  milvus:
+    host: "localhost"
+    port: 19530
+    
+# 大模型配置
+llm:
+  provider: "openai"  # openai, qwen, chatglm
+  openai:
+    api_key: "your-openai-api-key"
+    model: "gpt-4-turbo-preview"
+    temperature: 0.7
+    max_tokens: 2048
+  qwen:
+    api_key: "your-qwen-api-key"
+    model: "qwen-turbo"
+    temperature: 0.7
+  
+# Embedding模型配置
+embedding:
+  provider: "openai"  # openai, sentence_transformers
+  openai:
+    model: "text-embedding-3-large"
+  sentence_transformers:
+    model: "all-MiniLM-L6-v2"
+    
+# 多模态配置
+multimodal:
+  vision:
+    model: "gpt-4-vision-preview"
+  speech:
+    whisper_model: "base"
+    tts_model: "tts-1"
+  
+# RAG配置
+rag:
+  chunk_size: 1000
+  chunk_overlap: 200
+  top_k: 5
+  similarity_threshold: 0.7
+  
+# GraphRAG配置
+graphrag:
+  enable: true
+  max_depth: 3
+  min_score: 0.5
+  
+# 智能体配置
+agents:
+  fitness_coach:
+    name: "健身教练"
+    description: "专业的健身指导和训练计划制定"
+    temperature: 0.7
+    max_iterations: 5
+  nutrition_expert:
+    name: "营养师"
+    description: "营养搭配和饮食建议专家"
+    temperature: 0.6
+    max_iterations: 3
+  mental_health:
+    name: "心理健康顾问"
+    description: "运动心理和健康生活指导"
+    temperature: 0.8
+    max_iterations: 4
+  data_analyst:
+    name: "数据分析师"
+    description: "运动数据分析和趋势预测"
+    temperature: 0.5
+    max_iterations: 3
+    
+# 提示词配置
+prompts:
+  base_system_prompt: |
+    你是一个专业的运动健身伴侣AI助手，具备以下能力：
+    1. 多模态理解：能够处理文字、图片、语音等多种输入
+    2. 专业知识：拥有丰富的运动健身、营养学、心理学知识
+    3. 个性化服务：根据用户的具体情况提供定制化建议
+    4. 安全第一：始终将用户的健康和安全放在首位
+    
+  optimization:
+    enable: true
+    strategy: "dynamic"  # static, dynamic, adaptive
+    
+# 监控配置
+monitoring:
+  prometheus:
+    enable: true
+    port: 9090
+  logging:
+    level: "INFO"
+    format: "json"
+    file: "./logs/app.log"
+    
+# 安全配置
+security:
+  jwt_secret: "your-jwt-secret-key"
+  jwt_expire_hours: 24
+  rate_limit:
+    requests_per_minute: 60
+    burst: 10
